@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Type a city name to search</h3>
-    <GMapAutocomplete @place_changed="placeChanged" class="gmap-autocompolete"/>
+    <GMapAutocomplete @place_changed="onPlaceSelect" class="gmap-autocompolete"/>
 
     <div>You can also click a location on the map to view the weather forecast</div>
     <!-- TODO add click event -->
