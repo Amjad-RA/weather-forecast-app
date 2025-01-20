@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="border-b p-4 shadow-md">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
