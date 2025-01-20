@@ -6,6 +6,8 @@ import WeatherForecast from '@/components/WeatherForecast.vue';
   components: {
     SearchCity,
     WeatherForecast,
-  },
+  }
 })
-export default class HomeView extends Vue {}
+
+export default class HomeView extends Vue {
+}

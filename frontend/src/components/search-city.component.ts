@@ -1,3 +1,5 @@
+import store from '@/store';
+import { MapPlace } from '@/types';
 import { Options, Vue } from 'vue-class-component';
 
 @Options({
@@ -6,14 +8,26 @@ import { Options, Vue } from 'vue-class-component';
 })
 export default class SearchCity extends Vue {
 
-  selectedPlace: { lat: number; lng: number } | null = null;
+  public store = store;
 
-  placeChanged(place: any) {
-    this.selectedPlace = {
+  placeChanged(place: MapPlace) {
+    const selectedPlace = {
       lat: place.geometry.location.lat(),
       lng: place.geometry.location.lng(),
     };
+    store.commit('setSelectedPlace', selectedPlace);
   }
 
+  onMapClick(event: any) {
+    const place = {
+      geometry: {
+        location: {
+          lat: () => event.latLng.lat(),
+          lng: () => event.latLng.lng(),
+        }
+      }
+    };
+    this.placeChanged(place);
+  }
 
 }

@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
-    <SearchCity />
-    <WeatherForecast />
+  <div class="flex flex-col md:flex-row gap-4 p-4 h-full md:h-screen">
+    <SearchCity/>
+    <WeatherForecast/>
   </div>
 </template>
 
