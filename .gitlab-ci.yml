@@ -1,0 +1,45 @@
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  DOCKER_IMAGE: your-docker-image
+  FRONTEND_DIR: frontend
+  BACKEND_DIR: backend
+
+build-frontend:
+  stage: build
+  script:
+    - cd $FRONTEND_DIR
+    - yarn install
+    - yarn build
+  artifacts:
+    paths:
+      - frontend/dist
+
+build-backend:
+  stage: build
+  script:
+    - cd $BACKEND_DIR
+    - yarn install
+
+test-frontend:
+  stage: test
+  script:
+    - cd $FRONTEND_DIR
+    - yarn test
+
+test-backend:
+  stage: test
+  script:
+    - cd $BACKEND_DIR
+    - yarn test
+
+dockerize:
+  stage: deploy
+  script:
+    - docker-compose build
+    - docker-compose up -d
+  only:
+    - main
