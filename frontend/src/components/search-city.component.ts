@@ -1,5 +1,6 @@
+import store from '@/store';
+import { MapPlace } from '@/types';
 import { Options, Vue } from 'vue-class-component';
-import { Prop } from 'vue-property-decorator';
 
 @Options({
   props: {
@@ -7,14 +8,14 @@ import { Prop } from 'vue-property-decorator';
 })
 export default class SearchCity extends Vue {
 
-  @Prop({ type: Function, required: true })
-  public placeChanged!: (place: any) => void;
+  public store = store;
 
-  @Prop({ type: Object, required: true })
-  public selectedPlace!: { lat: number; lng: number }
-
-  onPlaceSelect(place: any) {
-    this.$emit('placeChanged', place);
+  placeChanged(place: MapPlace) {
+    const selectedPlace = {
+      lat: place.geometry.location.lat(),
+      lng: place.geometry.location.lng(),
+    };
+    store.commit('setSelectedPlace', selectedPlace);
   }
 
   onMapClick(event: any) {
@@ -26,7 +27,7 @@ export default class SearchCity extends Vue {
         }
       }
     };
-    this.$emit('placeChanged', place);
+    this.placeChanged(place);
   }
 
 }

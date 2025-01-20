@@ -1,20 +1,9 @@
+import { WeatherData } from '@/types';
 import * as backendApi from '../shared/backend-api';
 
-export interface ForecastModel {
-  latitude: number,
-  longitude: number,
-  elevation: number,
-  current_weather: {
-      temperature: number,
-      windspeed: number,
-      winddirection: number,
-      weathercode: number,
-      time: Date
-  }
-}
 export default class WeatherService {
 
-  getWeatherForecast(lat: number, lng: number): Promise<ForecastModel> {
+  getWeatherForecast(lat: number, lng: number): Promise<WeatherData> {
     return backendApi.get('weather/forecast', {lat, lng});
   }
 
