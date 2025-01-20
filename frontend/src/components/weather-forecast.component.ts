@@ -1,6 +1,8 @@
 import WeatherService from '@/services/weather-service.service';
 import { Options, Vue } from 'vue-class-component';
 import { Inject, Prop, Watch } from 'vue-property-decorator';
+import CardView from '@/components/core/CardView.vue';
+import LabelView from './core/LabelView.vue';
 
 interface Place {
   lat: number;
@@ -10,7 +12,11 @@ interface Place {
 @Options({
   props: {
     selectedPlace: Object,
-  }
+  },
+  components: {
+    CardView,
+    LabelView,
+  },
 })
 
 export default class WeatherForecast extends Vue {
@@ -39,7 +45,6 @@ export default class WeatherForecast extends Vue {
 
   @Watch('selectedPlace', { immediate: true, deep: true })
   onSelectedPlaceChange(newPlace: Place) {
-    console.log('Selected Place updated:', newPlace);
     this.fetchWeather(newPlace);
   }
 

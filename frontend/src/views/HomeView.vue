@@ -1,5 +1,5 @@
 <template>
-  <div class="flex space-x-4 p-4">
+  <div class="flex flex-row flex-wrap gap-4 p-4 h-screen">
     <SearchCity @placeChanged="placeChanged" :selectedPlace="selectedPlace"/>
     <WeatherForecast :selectedPlace="selectedPlace"/>
   </div>

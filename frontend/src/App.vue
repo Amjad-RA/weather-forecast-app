@@ -1,9 +1,9 @@
 <template>
-  <nav class="border-b p-4 shadow-md">
+  <nav class="border-b p-4 shadow-md fixed w-full bg-white z-10">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
-  <router-view/>
+  <router-view class="pt-20"/>
 </template>
 
 <style>
