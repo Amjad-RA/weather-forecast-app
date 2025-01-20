@@ -12,7 +12,9 @@
       :zoom="7"
       map-type-id="roadmap"
       ref="gmap"
+      @click="onMapClick"
     >
+      <GMapMarker :position="selectedPlace" />
     </GMapMap>
   </div>
 </template>

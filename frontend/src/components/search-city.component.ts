@@ -13,12 +13,19 @@ export default class SearchCity extends Vue {
   @Prop({ type: Object, required: true })
   public selectedPlace!: { lat: number; lng: number }
 
-  mounted() {
-    console.log('SearchCity mounted');
+  onPlaceSelect(place: any) {
+    this.$emit('placeChanged', place);
   }
 
-  onPlaceSelect(place: any) {
-    console.log('Place selected:', place, this.selectedPlace);
+  onMapClick(event: any) {
+    const place = {
+      geometry: {
+        location: {
+          lat: () => event.latLng.lat(),
+          lng: () => event.latLng.lng(),
+        }
+      }
+    };
     this.$emit('placeChanged', place);
   }
 
