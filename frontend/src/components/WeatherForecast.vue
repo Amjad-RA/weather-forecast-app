@@ -1,6 +1,6 @@
 <template>
-  <div class="flex-1 border border-gray-300 p-4 rounded-xl shadow-md overflow-auto relative">
-    <h3 class="text-2xl p-4 border-b font-bold">Weather forecast for City</h3>
+  <div class="flex-1 border border-gray-300 p-4 rounded-xl shadow-md overflow-auto relative h-screen">
+    <h3 class="text-2xl p-4 border-b font-bold">Weather forecast for City {{ error }}</h3>
 
     <!-- Display weather data if available -->
     <div v-if="weatherData && Object.keys(weatherData).length > 0" class="flex flex-col space-y-4">

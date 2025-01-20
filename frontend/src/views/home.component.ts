@@ -15,7 +15,10 @@ interface Place {
 })
 
 export default class HomeView extends Vue {
-  selectedPlace: Place | null = null;
+  selectedPlace: Place | null = {
+    lat: 56.26156,
+    lng: 9.500168,
+  };
 
   placeChanged(place: any) {
     this.selectedPlace = {

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-1 border border-gray-300 p-4 rounded-xl shadow-md h-full overflow-auto">
+  <div class="flex-1 border border-gray-300 p-4 rounded-xl shadow-md h-full overflow-auto w-[100%]">
     <h3>Type a city name to search</h3>
     <GMapAutocomplete @place_changed="onPlaceSelect" class="gmap-autocompolete border border-gray-300"/>
 
